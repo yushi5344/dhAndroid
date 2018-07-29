@@ -44,8 +44,7 @@
 			        <input type="hidden" name="kuquId" id="kuquId" />
 			    </div>
 			    <div class="mui-input-row">
-			    	<label for="">入库信息</label>
-			    	<textarea name="" rows="5" cols=""></textarea>
+			    	<label>入库信息</label>
 			    </div>
 				<div id="rukuData">
 					<div class="mui-input-row rukumingxi">
@@ -96,13 +95,7 @@
 				plus.key.addEventListener('keydown',function(e){
 					console.log("keydown: "+e.keyCode);
 					if(e.keyCode==224){
-						plus.Scaner.ScanCode("Hello World",
-			             function( result ) {
-			             	mui.alert( result );
-			             },
-			             function(result){
-			             	alert(result)
-			             });
+						getCode();
 					}
 				},false);
 //				plus.key.addEventListener('keyup',function(e){
@@ -115,6 +108,11 @@
 //					console.log("menubutton: "+e.keyCode);
 //				},false);
 			});
+
+        function getCode()
+        {
+            mui.alert(plus.Scaner.getCode(""));
+        }
 		</script>
 	</body>
 

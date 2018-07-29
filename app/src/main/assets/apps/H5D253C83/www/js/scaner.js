@@ -4,20 +4,10 @@ document.addEventListener( "plusready",  function()
 		B = window.plus.bridge;
     var Scaner =
     {
-    	ScanCode : function (Argus, successCallback, errorCallback )
-		{
-			var success = typeof successCallback !== 'function' ? null : function(args)
-			{
-				successCallback(args);
-			},
-			fail = typeof errorCallback !== 'function' ? null : function(code)
-			{
-				errorCallback(code);
-			};
-			callbackID = B.callbackId(success, fail);
-
-			return B.exec(_BARCODE, "ScanCode", [callbackID, Argus]);
-		}
+        getCode : function (Argus)
+        {
+            return B.execSync(_BARCODE, "getCode", [Argus]);
+        },
     };
     window.plus.Scaner = Scaner;
 }, true );
