@@ -44,13 +44,15 @@
 			        <input type="hidden" name="kuquId" id="kuquId" />
 					<input type="hidden" name="juanhao" id="juanhao" value=""/>
 			    </div>
+				<div class="mui-input-row">
+					<label>备注</label>
+					<input type="text" class="mui-input-clear" name="memo" id="memo">
+				</div>
 			    <div class="mui-input-row">
 			    	<label>入库信息</label>
 			    </div>
 				<div id="rukuData">
-					<div class="mui-input-row rukumingxi">
-						缸号:6417-5-1-1,数量:333,重量:444,卷数:33
-					</div>
+
 				</div>
 			    <div class="mui-button-row">
 			        <button type="button" class="mui-btn mui-btn-primary" id="submit">确认入库</button>
@@ -91,7 +93,8 @@
 				var kuweiId=document.getElementById('kuweiId').value;
 				var kuquId=document.getElementById('kuquId').value;
 				var juanhao=document.getElementById('juanhao').value;
-				var submitinfo={rukuDate:rukuDate,kuweiId:kuweiId,kuquId:kuquId,juanhao:juanhao};
+				var memo=document.getElementById('memo').value;
+	         	var submitinfo={rukuDate:rukuDate,kuweiId:kuweiId,kuquId:kuquId,juanhao:juanhao,memo:memo};
 				checkSaveByJuan(submitinfo, function(err) {
 					if (err) {
 						plus.nativeUI.toast(err);
@@ -104,7 +107,8 @@
 					console.log("keydown: "+e.keyCode);
 					if(e.keyCode==224){
 						var result=getCode();
-						mui.alert(code);
+						mui.alert(result);
+						return ;
 						var juanhao=document.getElementById('juanhao').value;
 						var juanArr=juanhao.split(',');
 						var index=$.inArray(result,juanArr);
