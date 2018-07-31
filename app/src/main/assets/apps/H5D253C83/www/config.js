@@ -12,5 +12,7 @@ var config = {
 		getMlData:'Cangku.getMlData',//通过条码值获取布卷信息
 		checkSaveByJuan:'Cangku.checkSaveByJuan',//面料按卷入库
 		bdListAdd:'Cangku.bdListAdd',//BD单领用登记列表
+		getMlDataChu:'Cangku.getMlDataChu',//通过卷号获取出库布卷信息
+        BDChukuSaveByJuan:'Cangku.BDChukuSaveByJuan',//BD单领用出库--按卷
 	}
 }
