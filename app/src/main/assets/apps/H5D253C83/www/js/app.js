@@ -17,7 +17,7 @@ var login=function(loginInfo, callback){
     }
 	mui.toast('登录成功');
 	setTimeout(function(){
-		return createState(loginInfo.account, callback);
+		return createState(data.params, callback);
 	},600);
 	
 };
@@ -106,7 +106,7 @@ var getMlData=function(codeId){
 	var arr={'token':config.token,codeId:codeId};
 	var data=request('POST',arr,config.apimethod.getMlData);
 	if(!data.success){
-		return false;
+		return ;
 	}
 	return data.params;
 }
@@ -200,7 +200,7 @@ var getClothInfo=function(codeId){
 	var arr={'token':config.token,codeId:codeId};
 	var data=request('POST',arr,config.apimethod.getClothInfo);
 	if(!data.success){
-		return false;
+		return ;
 	}
 	return data.params;
 }
@@ -252,4 +252,14 @@ var ACChukuSaveByJuan=function(submitInfo,callback){
 	}
 	mui.toast(data.msg);
 	mui.back();
+}
+//初始化扫码监听事件
+var initMe=function ()
+{
+    plus.Scaner.initMe("");
+}
+//获取条码值
+var getCode=function ()
+{
+    return code=plus.Scaner.getCode("");
 }

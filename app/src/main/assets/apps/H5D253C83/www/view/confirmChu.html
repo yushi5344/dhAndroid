@@ -34,7 +34,7 @@
 				<div class="mui-input-row">
 					<label>产品编码</label>
 					<input type="text" class="mui-input-clear" id="productId"  readonly="readonly">
-					<input type="hidden" name="juanhao" id="juanhao" value="14253-11,14253-12,"/>
+					<input type="hidden" name="juanhao" id="juanhao" value=""/>
 				</div>
 				<div class="mui-input-row">
 					<label>备注</label>
@@ -44,13 +44,11 @@
 					<label for="">出库信息</label>
 				</div>
 				<div id="chukuData">
-					<div class="mui-input-row rukumingxi" id="ML04244(19669)">缸号:<span class="ganghao">ML04244(19669)</span>,长度:<span class="length">53.70</span>,重量:<span class="weight">18.90</span>,卷数:<span class="juan">1</span></div>
-					<div class="mui-input-row rukumingxi" id="ML04635(23532)">缸号:<span class="ganghao">ML04635(23532)</span>,长度:<span class="length">55.20</span>,重量:<span class="weight">18.10</span>,卷数:<span class="juan">1</span></div>
+
 				</div>
 
 				<div class="mui-button-row">
 					<button type="button" class="mui-btn mui-btn-primary" id="submit" >确认入库</button>
-					<button type="button" class="mui-btn mui-btn-primary" id="submit1" >模拟</button>
 				</div>
 			</form>
 		</div>
@@ -60,6 +58,7 @@
 		<script type="text/javascript" src="../js/mui.poppicker.js"></script>
 		<script src="../js/scaner.js"></script>
 		<script type="text/javascript" src="../js/jquery.1.9.1.js"></script>
+		<script src="../js/app.js"></script>
 		<script type="text/javascript">
 			mui.init();
 			var picker = new mui.PopPicker();
@@ -86,6 +85,7 @@
 				});
 	         });
 			mui.plusReady(function(){
+				initMe();
 				window.addEventListener('comfirmPage',function(event){
 					var productId=event.detail.productId;
 					var orderCode=event.detail.orderCode;
@@ -94,10 +94,10 @@
 	            	document.getElementById('orderCode').value=orderCode;
 	            	document.getElementById('planId').value=planId;
 				});
-				plus.key.addEventListener('keydown',function(e){
+				plus.key.addEventListener('keyup',function(e){
 					console.log("keydown: "+e.keyCode);
 					if(e.keyCode==224){
-						var result='14253-3';
+						var result=getCode();
 						var juanhao=document.getElementById('juanhao').value;
 						var juanArr=juanhao.split(',');
 						var index=$.inArray(result,juanArr);
@@ -143,10 +143,6 @@
 					$('#chukuData').append(str);
 				}
 			}
-			function getCode()
-	        {
-	            return plus.Scaner.getCode("");
-	        }
 		</script>
 	</body>
 

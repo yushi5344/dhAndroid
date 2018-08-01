@@ -108,16 +108,15 @@
 					console.log("keyup: "+e.keyCode);
 					if(e.keyCode==224){
 						var result=getCode();
-						mui.alert(result);
 						var juanhao=document.getElementById('juanhao').value;
 						var juanArr=juanhao.split(',');
 						var index=$.inArray(result,juanArr);
 						if(index>=0){
 							mui.alert('该布卷已扫描');
-							return false;
+							return ;
 						}
-						document.getElementById('juanhao').value=juanhao+result+',';
 						var data=getMlData(result);
+						document.getElementById('juanhao').value=juanhao+result+',';
 			            doCodeData(data);
 					}
 					if(e.keyCode==4){
@@ -148,13 +147,6 @@
 					str='<div class="mui-input-row rukumingxi" id="'+data.c5+'">缸号:<span class="ganghao">'+data.c5+'</span>,长度:<span class="length">'+data.length+'</span>,重量:<span class="weight">'+data.weight+'</span>,卷数:<span class="juan">1</span></div>';
 					$('#rukuData').append(str);
 				}
-			}
-			function getCode()
-			{
-				return plus.Scaner.getCode("");
-			}
-			function initMe(){
-				plus.Scaner.initMe("");
 			}
 		</script>
 	</body>
