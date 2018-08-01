@@ -15,5 +15,8 @@ var config = {
 		getMlDataChu:'Cangku.getMlDataChu',//通过卷号获取出库布卷信息
         BDChukuSaveByJuan:'Cangku.BDChukuSaveByJuan',//BD单领用出库--按卷
         getClothInfo:'Cangku.getClothInfo',//通过卷号获取布卷信息
+        acListAdd:'Cangku.acListAdd',//AC单领用登记列表
+        suppierRc:'Cangku.suppierRc',//染厂加工户列表
+        ACChukuSaveByJuan:'Cangku.ACChukuSaveByJuan',//AC单领用出库--按卷--保存
 	}
 }
