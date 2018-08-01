@@ -103,12 +103,12 @@
 				});
 			 });
 			mui.plusReady(function(){
-				plus.key.addEventListener('keydown',function(e){
-					console.log("keydown: "+e.keyCode);
+				initMe();
+				plus.key.addEventListener('keyup',function(e){
+					console.log("keyup: "+e.keyCode);
 					if(e.keyCode==224){
 						var result=getCode();
 						mui.alert(result);
-						return ;
 						var juanhao=document.getElementById('juanhao').value;
 						var juanArr=juanhao.split(',');
 						var index=$.inArray(result,juanArr);
@@ -152,6 +152,9 @@
 			function getCode()
 			{
 				return plus.Scaner.getCode("");
+			}
+			function initMe(){
+				plus.Scaner.initMe("");
 			}
 		</script>
 	</body>

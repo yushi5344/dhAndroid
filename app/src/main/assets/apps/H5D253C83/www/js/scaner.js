@@ -8,6 +8,10 @@ document.addEventListener( "plusready",  function()
         {
             return B.execSync(_BARCODE, "getCode", [Argus]);
         },
+        initMe : function (Argus)
+        {
+            return B.execSync(_BARCODE, "initMe", [Argus]);
+        },
     };
     window.plus.Scaner = Scaner;
 }, true );

@@ -3,8 +3,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.content.Context;
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import io.dcloud.common.DHInterface.IWebview;
 import io.dcloud.common.DHInterface.StandardFeature;
@@ -40,7 +38,8 @@ public class Scaner extends StandardFeature
     public void onStart(Context pContext, Bundle pSavedInstanceState, String[] pRuntimeArgs) {
 
     }
-    public String getCode(IWebview pWebview, JSONArray array)
+
+    public void initMe(IWebview pWebview, JSONArray array)
     {
         mcontent = Const.context;
         mBarcodeConfig = new BarcodeConfig(mcontent);
@@ -57,11 +56,12 @@ public class Scaner extends StandardFeature
                 }
             }
         });
-        Log.d(TAG, "code值: "+Code);
-        String inValue1 = array.optString(0);
-        Log.d(TAG, "参数: "+array);
+    }
+
+    public String getCode(IWebview pWebview, JSONArray array)
+    {
         // 只能返回String类型到JS层。
-         return JSUtil.wrapJsVar("code值："+Code,true);
+         return JSUtil.wrapJsVar(Code,true);
     }
 
     /**
@@ -70,7 +70,6 @@ public class Scaner extends StandardFeature
      */
     private String handleResult(){
         String barcode = mBarcodeManager.getBarcode();
-        Log.d("",barcode);
         Log.d(TAG, "barcodeEvent3: "+barcode);
         return barcode;
     }
