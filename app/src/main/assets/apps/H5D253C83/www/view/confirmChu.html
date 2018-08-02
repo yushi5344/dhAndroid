@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="mui-button-row">
-					<button type="button" class="mui-btn mui-btn-primary" id="submit" >确认入库</button>
+					<button type="button" class="mui-btn mui-btn-primary" id="submit" >确认出库</button>
 				</div>
 			</form>
 		</div>
@@ -93,6 +93,8 @@
 					document.getElementById('productId').value=productId;
 	            	document.getElementById('orderCode').value=orderCode;
 	            	document.getElementById('planId').value=planId;
+	            	document.getElementById('juanhao').value='';
+	            	document.getElementById('chukuData').innerHTML='';
 				});
 				plus.key.addEventListener('keyup',function(e){
 					console.log("keydown: "+e.keyCode);
