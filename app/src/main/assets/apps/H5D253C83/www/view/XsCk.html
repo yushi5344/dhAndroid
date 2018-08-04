@@ -65,9 +65,13 @@
 				
 				mui('.mui-table-view').on('tap', 'li', function() {
 					var orderId = this.getAttribute('id');
+					var productId = this.getAttribute('productId');
+					var clientId = this.getAttribute('clientId');
 					clicked('_www/view/confirmXsCk.html',
 					{
-						orderId:orderId
+						orderId:orderId,
+						productId:productId,
+						clientId:clientId
 					});
 				});
 			});
