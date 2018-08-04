@@ -23,5 +23,10 @@ var config = {
         getMlDataChuByGang:'Cangku.getMlDataChuByGang',//通过卷号获取出库整缸布卷信息
         ACChukuSaveByGang:'Cangku.ACChukuSaveByGang',//AC单领用出库--按卷--保存
         BDChukuSaveByGang:'Cangku.BDChukuSaveByGang',//BD单领用出库--按缸
+        XsCkListAdd:'Cangku.XsCkListAdd',//面料销售出库列表
+        getDelComp:'Wuliu.getDelComp',//获取物流公司列表
+        getDelAddress:'Wuliu.getDelAddress',//获取发货地址
+        getShipArea:'Wuliu.getShipArea',//获取发货区域
+
 	}
 }
