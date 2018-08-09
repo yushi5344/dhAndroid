@@ -37,7 +37,10 @@
         },
         "Speech": {
             "description": "管理语音识别插件"
-        }
+        },
+	    "Device": {
+		    "description": "设备信息"
+	    }
     },
     "plus": {
         "splashscreen": {
