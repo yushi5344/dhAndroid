@@ -82,12 +82,14 @@
 	        		mui.toast('请先选择仓库');
 	        		return false;
 	        	}
-				picker.setData(getMlKuwei(cangkuId));
-		  		picker.show(function(items){
-	            	document.getElementById('kuquIds').value=items[0].value;
-	            	document.getElementById('kuquId').value=items[0].id;
-	          	});
+				clicked('_www/view/kuquSelect.html',{
+					cangkuId:cangkuId
+				});
 	        });
+	        window.addEventListener("changekuweiId", function(e) {
+                document.getElementById("kuquIds").value = e.detail.kuweiName;
+                document.getElementById("kuquId").value = e.detail.kuquId;
+            });
 			 document.querySelector("#submit").addEventListener("tap",function(){
 				var rukuDate=document.getElementById('rukuDate').value;
 				var kuweiId=document.getElementById('kuweiId').value;
@@ -103,10 +105,10 @@
 				});
 			 });
 			mui.plusReady(function(){
-				initMe();
+				//initMe();
 				plus.key.addEventListener('keyup',function(e){
 					alert("keyCode:"+e.keyCode);
-					if(e.keyCode==224){
+					if(e.keyCode==111){
 						var result=getCode();
 						alert("条码:"+result);
 						return false;

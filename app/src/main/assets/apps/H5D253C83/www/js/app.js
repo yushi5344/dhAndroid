@@ -96,10 +96,17 @@ var getMlCangku=function(){
 	return data.params;
 }
 //获取指定仓库对应的库区
-var getMlKuwei=function(cangkuId){
-	var arr={'token':config.token,cangkuId:cangkuId};
-	var data=request('POST',arr,config.apimethod.getMlKuwei);
-	return data.params;
+var getMlKuwei=function(cangkuId,page,searchKey){
+	var arr={
+		pageSize:config.pagesize,
+		page:page,
+		cangkuId:cangkuId,
+		token:config.token,
+		key:searchKey,
+		method:config.apimethod.getMlKuwei
+	};
+	var data=requestData('GET',arr);
+	return data;
 }
 //通过条码值获取布卷信息
 var getMlData=function(codeId){
