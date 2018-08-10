@@ -105,9 +105,11 @@
 			mui.plusReady(function(){
 				initMe();
 				plus.key.addEventListener('keyup',function(e){
-					console.log("keyup: "+e.keyCode);
+					alert("keyCode:"+e.keyCode);
 					if(e.keyCode==224){
 						var result=getCode();
+						alert("条码:"+result);
+						return false;
 						var juanhao=document.getElementById('juanhao').value;
 						var juanArr=juanhao.split(',');
 						var index=$.inArray(result,juanArr);
